@@ -1,0 +1,22 @@
+
+  <ion-content padding>
+ <form (ngSubmit)="login()" #registerForm="ngForm"> 
+      <ion-list>
+  
+        <ion-item>
+          <ion-label floating>Email</ion-label>
+          <ion-input type="email" name="phone" [(ngModel)]="credencial.email" required></ion-input>
+        </ion-item>
+  
+        <ion-item>
+          <ion-label floating>Senha</ion-label>
+          <ion-input type="password" name="password" [(ngModel)]="credencial.password" required></ion-input>
+        </ion-item>
+  
+      </ion-list>
+  
+      <div padding class="btn-entrar">
+        <button type="submit" ion-button color="primary" block [disabled]="!registerForm.form.valid" >Entrar</button>
+      </div>
+    </form>
+  </ion-content>

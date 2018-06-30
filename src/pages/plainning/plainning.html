@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Planejamento</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <div *ngFor="let day of days">
+      <ion-label>{{day.date | date: 'dd/MM/yyyy EEEE'}}</ion-label>
+    <ion-list>
+      <ion-item *ngFor="let time of day.times">
+        <ion-label>{{time.start | date : 'HH:mm'}} as {{time.end| date : 'HH:mm'}}</ion-label>
+        <ion-checkbox [(ngModel)]="time.checked"></ion-checkbox>
+      </ion-item>
+    </ion-list>
+  </div>
