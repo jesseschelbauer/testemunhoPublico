@@ -5,4 +5,10 @@
   "integrations": {
     "cordova": {}
   }
+  ,
+  "proxies": [
+    {
+        "path": "/TestemunhoPublicoApi",
+        "proxyUrl": "http://192.168.0.11/TestemunhoPublicoApi"
+    }]
 }

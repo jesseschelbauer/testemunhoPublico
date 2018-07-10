@@ -18,6 +18,7 @@ import { JwtInterceptor } from '../providers/jwt-interceptor/jwt-interceptor';
 
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
+import { EscalaPage } from '../pages/Escala/escala';
 
 registerLocaleData(localePt, 'pt');
 
@@ -25,12 +26,11 @@ registerLocaleData(localePt, 'pt');
 @NgModule({
   declarations: [
     MyApp,
-    AboutPage,
     ContactPage,
-    HomePage,
     TabsPage,
     LoginPage,
-    PlainningPage
+    PlainningPage, 
+    EscalaPage
   ],
   imports: [
     BrowserModule,
@@ -40,10 +40,8 @@ registerLocaleData(localePt, 'pt');
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    AboutPage,
     ContactPage,
-    HomePage,
-    TabsPage,LoginPage,PlainningPage
+    TabsPage,LoginPage,PlainningPage,EscalaPage
   ],
   providers: [
     StatusBar,

@@ -17,23 +17,16 @@ export class LoginPage {
   }
 
   public login() {
+    let logging = this.loading.create({content:"Carregando"});
+    logging.present();
     this.Api.login(this.credencial)
       .subscribe(
         user => {
           if (user.authenticated) {
-            let loading = this.loading.create({content:"Carregando"});
-            loading.setDuration(3000);
-            loading.present();
             this.nav.setRoot(TabsPage);
-            
-          }else{
-            let alert = this.alert.create({
-              title: 'Login inválido',
-              subTitle: `Verifique seu usário e senha`,
-              buttons: ['OK']
-            });
-            alert.present();   
           }
+          
+          logging.dismiss();
         },
         error => {
           let alert = this.alert.create({
@@ -41,6 +34,7 @@ export class LoginPage {
             subTitle: `Verifique seu usário e senha`,
             buttons: ['OK']
           });
+          logging.dismiss();
           alert.present(); 
         });
   }
