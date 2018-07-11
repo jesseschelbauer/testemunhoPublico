@@ -16,15 +16,40 @@
       <ion-label>Fim</ion-label>
       <ion-datetime name="fim" displayFormat="DDDD/MMMM/YYYY" [(ngModel)]="escala.fim"></ion-datetime>
     </ion-item>
-    <ion-item>
+    <ion-list-header>
       <ion-label>Dias da semana</ion-label>
-    </ion-item>
+    </ion-list-header>
     <ion-item *ngFor="let day of days">
       <ion-label>{{day.descricao}}</ion-label>
       <ion-checkbox name="day.descricao" [(ngModel)]="day.checked"></ion-checkbox>
     </ion-item>
     <ion-item>
         <ion-label>Horários</ion-label>
-      </ion-item>
+    </ion-item>
+    <ion-item>
+        <ion-label>Hora início</ion-label>
+        <ion-datetime name="horaInicio" displayFormat="HH:mm" [(ngModel)]="periodo.horaInicio"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label>Hora fim</ion-label>
+      <ion-datetime name="horaFim" displayFormat="HH:mm" [(ngModel)]="periodo.horaFim"></ion-datetime>
+  </ion-item>
+  <ion-item>
+    <button type="button" (click)="addHorario()" ion-button color="primary">Adicionar</button>
+  </ion-item>
+
+  <ion-list >
+
+      <ion-list-header>
+          Horários informados ({{escala.periodos.length}})
+        </ion-list-header>
+
+        <ion-item *ngFor="let p of escala.periodos">
+            <ion-icon name="time" item-start color="primary"></ion-icon>
+            <ion-label>{{p.horaInicio}} às {{p.horaFim}}</ion-label>
+            <button ion-button type="button" (click)="removerPeriodo(periodo)" outline item-end>Remover</button>
+          </ion-item>
+
+  </ion-list>
   </form>
 </ion-content>
